@@ -3,7 +3,7 @@
 ### geofencing
 An implementation that uses a dataset of windmills, as the user move's around using
 the arrow keys, if the user enters the vicinity of a windmill they will be notified
-they are approaching the given windmill. A live demo can be found [here](URL TO GITHUB PAGES).
+they are approaching the given windmill. A live demo can be found [here](https://ahmadayubi.github.io/features-api-implementations/standalone/ogc/geofencing/).
 
 Requires:
 
