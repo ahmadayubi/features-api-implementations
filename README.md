@@ -6,3 +6,9 @@ Live Demos:
 - Standalone
   - OGC Features API
     - [Geofencing](https://ahmadayubi.github.io/features-api-implementations/standalone/ogc/geofencing/)
+  - Convenience API
+    - [Geofencing + Visualizing charts](https://ahmadayubi.github.io/features-api-implementations/standalone/convenience/)
+- Browser (both, LeafletJS)
+  - [Visualizing charts](https://ahmadayubi.github.io/features-api-implementations/browser/)
+- Traditional clients (QGIS)
+  - [Instructions](https://ahmadayubi.github.io/features-api-implementations/traditional/)
