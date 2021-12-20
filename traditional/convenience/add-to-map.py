@@ -7,12 +7,12 @@ group = QgsProject.instance().layerTreeRoot().addGroup("Stations")
 # Generates the layer item for the given station
 def generateLayer(station):
     stationReq = requests.get("http://api.luchtmeetnet.nl/open_api/stations/"+station+"")
-    stationjson = stationReq.json()
+    stationJSON = stationReq.json()
     
-    stationjson["data"]["geometry"]["type"].capitalize()
+    stationJSON["data"]["geometry"]["type"].capitalize()
     
-    geostring = json.dumps(stationjson["data"]["geometry"])
-    geom = ogr.CreateGeometryFromJson(geostring)
+    geoString = json.dumps(stationJSON["data"]["geometry"])
+    geom = ogr.CreateGeometryFromJson(geoString)
     geom = QgsGeometry.fromWkt(geom.ExportToWkt())
     
     layer = QgsVectorLayer('Point', station,'memory')
@@ -37,8 +37,6 @@ def setAttributes(station, layer, pr, elem):
     for m in rjson["data"]:        
         elem.setAttributes([m["timestamp_measured"], m["value"], m["formula"]])
         pr.addFeature(elem)
-
-    
 
 r = requests.get("http://api.luchtmeetnet.nl/open_api/stations")
 rjson = r.json()

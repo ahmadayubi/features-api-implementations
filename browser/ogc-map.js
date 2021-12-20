@@ -54,8 +54,6 @@ export class OGCMap {
     container.style.position = "relative";
 
     let ctx = document.createElement("canvas");
-    let dctx = ctx.getContext("2d");
-
 
     let fdata = this.formatData(data);
     let c = new Chart(ctx, {

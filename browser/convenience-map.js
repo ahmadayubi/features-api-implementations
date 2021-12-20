@@ -1,5 +1,3 @@
-const Chart = window.Chart;
-
 export class ConvenienceMap {
   baseurl;
   apiurl;
@@ -54,7 +52,7 @@ export class ConvenienceMap {
   }
 
   addStationToMap(data, name) {
-    // TODO: The api geojson doesn't follow standard, needed to make into uppercase
+    // The api geojson doesn't follow standard, needed to make into uppercase
     data.geometry.type = data.geometry.type[0].toUpperCase() + data.geometry.type.slice(1);
     let geojsonFeature = {
       "type": "Feature",
@@ -81,15 +79,15 @@ export class ConvenienceMap {
       }).catch(err => console.log(err));
   }
 
-  concentrationOf(station) {
-    let div = document.createElement("div");
-    fetch(this.apiurl + `stations/${station}/measurements?page=&order=&order_direction=&formula=`, {method: 'GET'})
-      .then(nextResp => nextResp.json())
-      .then(nextJson => {
-        div.innerHTML = JSON.stringify(nextJson);
-      });
-    return div;
-  }
+  // concentrationOf(station) {
+  //   let div = document.createElement("div");
+  //   fetch(this.apiurl + `stations/${station}/measurements?page=&order=&order_direction=&formula=`, {method: 'GET'})
+  //     .then(nextResp => nextResp.json())
+  //     .then(nextJson => {
+  //       div.innerHTML = JSON.stringify(nextJson);
+  //     });
+  //   return div;
+  // }
 
   concentrationAt(e) {
     fetch(this.apiurl + `concentrations?formula=no2&longitude=${e.latlng.lng}&latitude=${e.latlng.lat}`, {method: 'GET'})
@@ -108,8 +106,6 @@ export class ConvenienceMap {
     container.style.position = "relative";
 
     let ctx = document.createElement("canvas");
-    let dctx = ctx.getContext("2d");
-
 
     let fdata = this.formatData(data);
     let c = new Chart(ctx, {
